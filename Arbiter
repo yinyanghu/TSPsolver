@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for A in {1..10}
+do
+    for B in {1..5}
+    do
+        bf=$(./bf < problem$A-$B)
+        astar=$(./astar < problem$A-$B)
+        sa=$(./sa < problem$A-$B)
+        if [ "$bf" != "$astar" ] || [ "$bf" != "$sa" ];
+        then
+            echo "Problem$A-$B": $bf, $astar, $sa
+        else
+            echo "Problem$A-$B"
+        fi
+    done
+done
